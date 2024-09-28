@@ -1,6 +1,15 @@
 class Solution(object):
     def twoSum(self, nums, target):
+        indexes = {}
         for i in range(len(nums)):
-            for j in range(len(nums)):
-                if int(nums[i] + nums[j]) == target and i != j:
-                    return i, j
+            add = target - nums[i]
+            if add in indexes:
+                return [indexes[add], i]
+            indexes[nums[i]] = i
+
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        
